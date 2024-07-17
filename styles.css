@@ -82,7 +82,8 @@ button:hover {
 .option:hover {
 
    /* background-color:#e7c011;*/
-    background-color:#d5b00a;
+    /*background-color:#d5b00a;*/
+    background-color: #333;
     
 }
 
