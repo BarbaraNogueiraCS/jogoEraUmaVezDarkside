@@ -14,7 +14,7 @@ const questions = [
         background: "url('imagens2/img5.jpg')"
     },
     { 
-        question: "Qual personagem inicialmente viaja para a Transilvânia para encontrar Drácula?", 
+        question: "Qual personagem inicialmente viaja para a Transilvânia para encontrar o Drácula?", 
         options: ["Dr. John Seward", "Jonathan Harker", "Arthur Holmwood"], 
         correctAnswer: 1, 
         hint: "Este personagem é um advogado inglês.",
@@ -196,7 +196,7 @@ const questions = [
         background: "url('imagens2/img21.jpg')"
     },
     { 
-        question: "Qual é a relação de Norman Bates com sua mãe?", 
+        question: "Qual é a relação de Norman Bates com sua mãe no livro Psicose?", 
         options: ["Ela está morta, mas ele mantém seu corpo preservado", "Ela é sua cúmplice nos assassinatos", "Ela o abandonou na infância"], 
         correctAnswer: 0, 
         hint: "A mãe de Norman tem uma presença inquietante apesar de seu estado.",
@@ -217,28 +217,28 @@ const questions = [
         background: "url('imagens2/img29novo.jpg')" 
     },
     { 
-        question: "Qual é o nome da fazenda onde se passa a história?", 
+        question: "Qual é o nome da fazenda onde se passa a história do livro A Revolução dos Bichos?", 
         options: ["Fazenda Manor", "Fazenda Green", " Fazenda Sunny"], 
         correctAnswer: 0, 
         hint: "A fazenda tem um nome associado a propriedade tradicional antes da revolução.",
         background: "url('imagens2/img36.jpg')"
     },
     { 
-        question: "Qual porco lidera a revolução contra os humanos?", 
+        question: "Qual porco lidera a revolução contra os humanos no livro A Revolução dos Bichos?", 
         options: ["Napoleão", "Bola-de-Neve", "Garganta"], 
         correctAnswer: 0, 
         hint: "Este porco se torna o líder autoritário após a revolução.",
         background: "url('imagens2/img37.jpg')"
     },
     { 
-        question: "Qual é o lema que os animais adotam após a revolução?", 
+        question: "Qual é o lema que os animais adotam após a revolução no livro de George Orwell?", 
         options: ["Trabalhar e prosperar", "Todos os animais são iguais", "Liberdade e fraternidade"], 
         correctAnswer: 1, 
         hint: "Este lema é modificado ao longo da história para refletir a corrupção do poder.",
         background: "url('imagens2/img38.jpg')"
     },
     { 
-        question: "Qual personagem representa a propaganda e manipulação da verdade na fazenda?", 
+        question: "Qual personagem representa a propaganda e manipulação da verdade na fazenda do livro de George Orwell?", 
         options: ["Sansão", "Garganta", "Minimus"], 
         correctAnswer: 1, 
         hint: "Este personagem é um porco conhecido por sua habilidade em discursos persuasivos.",
