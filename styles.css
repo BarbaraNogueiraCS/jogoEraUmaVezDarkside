@@ -6,7 +6,7 @@ body {
     color: #fff;
     background: o-repeat center center fixed;
     background-size: cover;
-    background-size: 1920px 1080px;/* coloquei para imagem*/
+    background-size: 1920px 980px;/* coloquei para imagem*/
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,16 +27,16 @@ body {
 h1 {
     margin-bottom: 20px;
     color: #ff4444;
-    font-size: 2.3em;
+    font-size: 2em; /* bem vindo*/
 }
 
 #game-description {
     margin-bottom: 20px;
-    font-size: 1.4em;
+    font-size: 1.5em;/* texto inicio*/
 }
 
 label {
-    font-size: 1.1em;
+    font-size: 1.2em;/*nome*/
 }
 
 input {
@@ -75,7 +75,7 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    font-size: 1em; 
+    font-size: 1.2em; /*Alternativas*/
     font-family: "Playwrite CU", cursive;
 }
 
@@ -89,7 +89,7 @@ button:hover {
 
 #result {
     margin-top: 20px;
-    font-size: 1.2em;
+    font-size: 2em; /*Resultado da questão*/
 }
 
 #end-game-container {
@@ -114,7 +114,7 @@ button:hover {
     height: 78px;
     border: none;
     cursor: pointer;
-    font-size: 1.5em;
+    font-size: 1.5em; /*Emojis*/
 }
 
 #hints button:disabled {
@@ -123,5 +123,5 @@ button:hover {
 }
 
 #question {
-    font-size: 1.6em; /* Adicionada esta linha para aumentar o tamanho da fonte das perguntas */
+    font-size: 2em; /* Adicionada esta linha para aumentar o tamanho da fonte das perguntas */
 }
