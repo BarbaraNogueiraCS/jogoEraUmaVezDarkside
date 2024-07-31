@@ -1,48 +1,431 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="imagens/reticencia.ico" type="image/x-icon">
-    <title>Era uma vez... DarkSide!</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet"> 
+const questions = [
+    { 
+        question: "Quem é o autor do livro 'Drácula'?", 
+        options: ["Mary Shelley", "Bram Stoker", "Edgar Allan Poe"], 
+        correctAnswer: 1, 
+        hint: "O autor é um escritor irlandês conhecido por suas histórias de horror gótico.",
+        background: "url('imagens/img45.jpg')"
+    },
+    { 
+        question: "Qual é o nome do castelo onde Drácula vive?", 
+        options: ["Castelo Transilvânia", "Castelo de Harker", "Castelo de Drácula"], 
+        correctAnswer: 2, 
+        hint: "Este castelo está localizado na Transilvânia.",
+        background: "url('imagens/img1.jpg')"
+    },
+    { 
+        question: "Qual personagem inicialmente viaja para a Transilvânia para encontrar o Drácula?", 
+        options: ["Dr. John Seward", "Jonathan Harker", "Arthur Holmwood"], 
+        correctAnswer: 1, 
+        hint: "Este personagem é um advogado inglês.",
+        background: "url('imagens/img2.jpg')" 
+    },
+    { 
+        question: "Quem é a melhor amiga de Mina Harker que também se torna alvo de Drácula?", 
+        options: ["Lucy Westenra", "Wilhelmina Murray", "Elizabeth Bathory"], 
+        correctAnswer: 0, 
+        hint: "Esta personagem é noiva de Arthur Holmwood.",
+        background: "url('imagens/img3.jpg')" 
+    },
+    { 
+        question: "Qual médico e especialista em doenças raras ajuda a combater o Drácula?", 
+        options: ["Dr. John Seward", "Professor Abraham Van Helsing", "Renfield"], 
+        correctAnswer: 1, 
+        hint: "Ele é um professor holandês e amigo de Dr. John Seward.",
+        background: "url('imagens/img4.jpg')" 
+    },
+    { 
+        question: "Quem é o autor do livro 'Frankenstein'?", 
+        options: ["Bram Stoker", "Mary Shelley", "Edgar Allan Poe"], 
+        correctAnswer: 1, 
+        hint: "Esta autora é uma escritora inglesa que escreveu esta obra aos 18 anos.",
+        background: "url('imagens/img5.jpg')" 
+    },
+    { 
+        question: "Qual é o nome do cientista que cria o monstro em 'Frankenstein'?", 
+        options: ["Henry Clerval", "Robert Walton", "Victor Frankenstein"], 
+        correctAnswer: 2, 
+        hint: "Ele é o personagem principal e sua criação dá nome ao livro.",
+        background: "url('imagens/img6.jpg')" 
+    },
+    { 
+        question: "Como o monstro é frequentemente referido no livro 'Frankenstein'?", 
+        options: ["A Criatura", "O Demônio", "O Fantasma"], 
+        correctAnswer: 0, 
+        hint: "Este termo é usado para destacar a ausência de nome próprio.",
+        background: "url('imagens/img7.jpg')" 
+    },
+    { 
+        question: "Onde Victor Frankenstein realiza a criação do monstro?", 
+        options: ["Em seu laboratório em Londres", "Em um laboratório em Ingolstadt", "Em sua casa na Suíça"], 
+        correctAnswer: 1, 
+        hint: "Esta cidade está localizada na Alemanha e é onde Victor estudava.",
+        background: "url('imagens/img8.jpg')" 
+    },
+    { 
+        question: "Qual é o motivo principal que leva Victor Frankenstein a criar o monstro?", 
+        options: ["Ambição científica e desejo de superar a morte", "Vingança contra seus colegas de faculdade", "Pressão de sua família para ser bem-sucedido"], 
+        correctAnswer: 0, 
+        hint: "Ele está motivado por um desejo de descobrir os segredos da vida e da morte.",
+        background: "url('imagens/img9.jpg')" 
+    },
+    { 
+        question: "Quem é o autor do livro 'Alice no País das Maravilhas'?", 
+        options: ["J.R.R. Tolkien", "Lewis Carroll", "C.S. Lewis"], 
+        correctAnswer: 1, 
+        hint: "O autor é conhecido pelo seu verdadeiro nome, Charles Lutwidge Dodgson.",
+        background: "url('imagens/img36.jpg')" 
+    },
+    { 
+        question: "Qual animal Alice segue para cair na toca e chegar ao País das Maravilhas?", 
+        options: ["Um coelho", "Um gato", "Um rato"], 
+        correctAnswer: 0, 
+        hint: "Este animal está sempre olhando para o relógio e dizendo que está atrasado.",
+        background: "url('imagens/img11.jpg')"
+    },
+    { 
+        question: "Qual é o nome do gato que Alice encontra no País das Maravilhas?", 
+        options: [" Gato de Botas", "Gato Cheshire", "Gato Félix"], 
+        correctAnswer: 1, 
+        hint: "Este gato é conhecido por seu sorriso enigmático.",
+        background: "url('imagens/img12.jpg')"
+    },
+    { 
+        question: "Qual personagem é conhecida por dizer 'Cortem-lhe a cabeça!'?", 
+        options: ["Rainha Vermelha", "Rainha Branca", "Rainha de Copas"], 
+        correctAnswer: 2, 
+        hint: "Este gato é conhecido por seu sorriso enigmático.",
+        background: "url('imagens/img13.jpg')"
+    },
+    { 
+        question: "O que Alice come ou bebe para mudar de tamanho no livro?", 
+        options: ["Uma maçã e uma taça de vinho", "Um bolo e uma poção", "Uma cenoura e um copo de leite"], 
+        correctAnswer: 1, 
+        hint: "Ela encontra uma garrafa com um rótulo 'Beba-me' e um bolo com um rótulo 'Coma-me'.",
+        background: "url('imagens/img14.jpg')"
+    },
+    { 
+        question: "Quem é o autor do conto O Chamado de Cthulhu?", 
+        options: ["Edgar Allan Poe", "H. P. Lovecraft", "Arthur Conan Doyle"], 
+        correctAnswer: 1, 
+        hint: "O autor é conhecido por suas histórias de terror cósmico e mitos antigos.",
+        background: "url('imagens/img15.jpg')"
+    },
+    { 
+        question: "Qual é o nome da criatura principal mencionada no conto O Chamado de Cthulhu?", 
+        options: ["Nyarlathotep", "Cthulhu", "Azathoth"], 
+        correctAnswer: 1, 
+        hint: "Esta criatura é descrita como uma entidade cósmica com características de polvo e dragão.",
+        background: "url('imagens/img16.jpg')"
+    },
+    { 
+        question: "Em qual cidade fictícia se encontram os registros sobre Cthulhu?", 
+        options: ["Innsmouth", "Dunwich", "R'lyeh"], 
+        correctAnswer: 2, 
+        hint: "Esta cidade é submersa e onde Cthulhu está adormecido.",
+        background: "url('imagens/img17.jpg')" 
+    },
+    { 
+        question: "Qual é o nome do professor que investiga os cultos e as lendas de Cthulhu?", 
+        options: ["Professor Armitage", "Professor Angell", "Professor Wilmarth"], 
+        correctAnswer: 1, 
+        hint: "Ele é um professor da Universidade Brown que encontra um estranho ídolo de Cthulhu.",
+        background: "url('imagens/img56.jpg')" 
+    },
+    { 
+        question: "Em que ano foi publicado o conto O Chamado de Cthulhu?", 
+        options: ["1928", "1936", "1941"], 
+        correctAnswer: 0, 
+        hint: "O conto foi publicado na revista 'Weird Tales' durante a década de 1920.",
+        background: "url('imagens/img19.jpg')" 
+    },
+    { 
+        question: "Quem é o autor do livro O Mágico de Oz?", 
+        options: ["Lewis Carroll", "J.M. Barrie", "L. Frank Baum"], 
+        correctAnswer: 2, 
+        hint: "O autor é um escritor americano conhecido por sua série de livros sobre a Terra de Oz.",
+        background: "url('imagens/img41.jpg')" 
+    },
+    { 
+        question: "Qual é o nome da protagonista que viaja para a Terra de Oz?", 
+        options: ["Alice", "Wendy", "Dorothy"], 
+        correctAnswer: 2, 
+        hint: "Ela é uma garota do Kansas que viaja com seu cachorro Toto.",
+        background: "url('imagens/img21.jpg')" 
+    },
+    { 
+        question: "Qual é o nome da estrada que Dorothy segue para encontrar o Mágico de Oz?", 
+        options: ["Estrada de Tijolos Vermelhos", "Estrada de Tijolos Verdes", "Estrada de Tijolos Amarelos"], 
+        correctAnswer: 2, 
+        hint: "Esta estrada é conhecida por sua cor vibrante que leva à Cidade das Esmeraldas.",
+        background: "url('imagens/img22.jpg')" 
+    },
+    { 
+        question: "Quem Dorothy encontra primeiro em sua jornada pela Terra de Oz?", 
+        options: ["O Espantalho", "O Homem de Lata", "O Leão Covarde"], 
+        correctAnswer: 0, 
+        hint: "Este personagem deseja ter um cérebro.",
+        background: "url('imagens/img23.jpg')" 
+    },
+    { 
+        question: "Qual é o desejo do Leão Covarde no livro O Mágico de Oz?", 
+        options: ["Ter um coração", "Ter coragem", "Ter um cérebro"], 
+        correctAnswer: 1, 
+        hint: "Este personagem deseja ser valente e destemido.",
+        background: "url('imagens/img40.jpg')" 
+    },
+    { 
+        question: "Quem é o autor do livro Psicose?", 
+        options: ["Stephen King", "Robert Bloch", "Alfred Hitchcock"], 
+        correctAnswer: 1, 
+        hint: "O autor é um escritor americano famoso por suas histórias de terror e suspense.",
+        background: "url('imagens/img26.jpg')" 
+    },
+    { 
+        question: "Qual é o nome do protagonista que gerencia o Bates Motel?", 
+        options: ["Norman Bates", "Sam Loomis", "Marion Crane"], 
+        correctAnswer: 0, 
+        hint: "Este personagem tem uma relação complexa com sua mãe.",
+        background: "url('imagens/img27.jpg')"
+    },
+    { 
+        question: "Quem é a primeira vítima que chega ao Bates Motel no livro Psicose?", 
+        options: ["Lila Crane", "Marion Crane", "Arbogast"], 
+        correctAnswer: 1, 
+        hint: "Esta personagem rouba uma grande quantia de dinheiro antes de chegar ao motel.",
+        background: "url('imagens/img28.jpg')"
+    },
+    { 
+        question: "Qual é a relação de Norman Bates com sua mãe no livro Psicose?", 
+        options: ["Ela está morta, mas ele mantém seu corpo preservado", "Ela é sua cúmplice nos assassinatos", "Ela o abandonou na infância"], 
+        correctAnswer: 0, 
+        hint: "A mãe de Norman tem uma presença inquietante apesar de seu estado.",
+        background: "url('imagens/img29.jpg')"
+    },
+    { 
+        question: "Em que ano foi publicado o livro Psicose?", 
+        options: ["1959", "1965", "1971"], 
+        correctAnswer: 0, 
+        hint: "O livro foi publicado no final da década de 1950 e inspirou um famoso filme de Alfred Hitchcock.",
+        background: "url('imagens/img30.jpg')"
+    },
+    { 
+        question: "Quem é o autor do livro A Revolução dos Bichos?", 
+        options: ["Aldous Huxley", "George Orwell", "Ray Bradbury"], 
+        correctAnswer: 1, 
+        hint: "O autor é conhecido também pelo livro '1984'.",
+        background: "url('imagens/img31.jpg')" 
+    },
+    { 
+        question: "Qual é o nome da fazenda onde se passa a história do livro A Revolução dos Bichos?", 
+        options: ["Fazenda Manor", "Fazenda Green", "Fazenda Sunny"], 
+        correctAnswer: 0, 
+        hint: "A fazenda tem um nome associado a propriedade tradicional antes da revolução.",
+        background: "url('imagens/img32.jpg')"
+    },
+    { 
+        question: "Qual porco lidera a revolução contra os humanos no livro A Revolução dos Bichos?", 
+        options: ["Napoleão", "Bola-de-Neve", "Garganta"], 
+        correctAnswer: 0, 
+        hint: "Este porco se torna o líder autoritário após a revolução.",
+        background: "url('imagens/img42.jpg')"
+    },
+    { 
+        question: "Qual é o lema que os animais adotam após a revolução no livro de George Orwell?", 
+        options: ["Trabalhar e prosperar", "Todos os animais são iguais", "Liberdade e fraternidade"], 
+        correctAnswer: 1, 
+        hint: "Este lema é modificado ao longo da história para refletir a corrupção do poder.",
+        background: "url('imagens/img39.jpg')"
+    },
+    { 
+        question: "Qual personagem representa a propaganda e manipulação da verdade na fazenda do livro de George Orwell?", 
+        options: ["Sansão", "Garganta", "Minimus"], 
+        correctAnswer: 1, 
+        hint: "Este personagem é um porco conhecido por sua habilidade em discursos persuasivos.",
+        background: "url('imagens/img35.jpg')"
+    },
+    { 
+        question: "Quem é o autor do conto O Gato Preto?", 
+        options: ["H.P. Lovecraft", "Edgar Allan Poe", "Nathaniel Hawthorne"], 
+        correctAnswer: 1, 
+        hint: "O autor é conhecido como um mestre do horror gótico e escreveu 'O Corvo'.",
+        background: "url('imagens/img59.jpg')" 
+    },
+    {
+        question: "Qual é o nome do primeiro gato no conto O Gato Preto?", 
+        options: ["Pluto", "Mercury", "Apollo"], 
+        correctAnswer: 0, 
+        hint: "O nome do gato é também o nome do deus romano do submundo.",
+        background: "url('imagens/img65.jpg')"
+    },
+    { 
+        question: "O que o narrador faz ao gato em um acesso de fúria no conto O Gato Preto?", 
+        options: ["Abandona o gato", " Cega o gato de um olho", "Alimenta o gato com veneno"], 
+        correctAnswer: 1, 
+        hint: "O narrador comete um ato cruel que envolve um dos olhos do gato.",
+        background: "url('imagens/img67.jpg')"
+    },
+    { 
+        question: "Como o narrador esconde o corpo de sua esposa depois de matá-la no conto O Gato Preto?", 
+        options: ["Enterra no jardim", "Joga no rio", "Empareda no porão"], 
+        correctAnswer: 2, 
+        hint: "Ele usa uma técnica de construção para ocultar o corpo.",
+        background: "url('imagens/img49.jpg')"
+    },
+    { 
+        question: "Como a polícia descobre o corpo da esposa do narrador no conto O Gato Preto de Allan Poe?", 
+        options: ["Um vizinho vê o crime", "O gato mia de dentro da parede", "O narrador confessas"], 
+        correctAnswer: 1, 
+        hint: "Um som vindo do local onde o corpo está escondido leva a polícia até ele.",
+        background: "url('imagens/img50.jpg')"
+    },
+];
 
-</head>
-<body>
-    <div class="container">
-        <div id="welcome-container">
-            <h1>Bem-vindo ao Era uma vez ... DarkSide!</h1>
-            <p id="game-description">Para desvendar os segredos da literatura sombria e obter o tesouro DarkSide, você deverá embarcar numa tenebrosa aventura onde o tempo não estará a seu favor... Porém, noites sombrias também trazem surpresas e você receberá três recursos especiais para ajudá-lo em sua jornada, use-os sabiamente.</p>
-            <label for="player-name">Nome:</label>
-            <input type="text" id="player-name">
-            <button onclick="startGame()">Iniciar</button>
-        </div>
-        <div id="quiz-container" style="display:none;">
-            <div id="question-container">
-                <div id="question"></div>
-                <div class="options">
-                    <button class="option" onclick="checkAnswer(0)">Opção 1</button>
-                    <button class="option" onclick="checkAnswer(1)">Opção 2</button>
-                    <button class="option" onclick="checkAnswer(2)">Opção 3</button>
-                </div>
-                <div id="hints">
-                    <button id="hint1" onclick="useHint(1)">💀</button>
-                    <button id="hint2" onclick="useHint(2)">👻</button>
-                    <button id="hint3" onclick="useHint(3)">🔮</button>
-                </div>
-            </div>
-            <div id="result"></div>
-        </div>
-        <div id="end-game-container" style="display:none;">
-            <h2>Parabéns, <span id="player-name-display"></span>!</h2>
-            <p>Pontuação da partida: <span id="score"></span> de 13</p>
-            <p>Desconto obtido na DarkSide: <span id="discount"></span>%</p>
-            <button onclick="resetGame()">Jogar Novamente</button>
-        </div>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
+let currentQuestionIndex = 0;
+let score = 0;
+let playerName = "";
+let hintsUsed = [false, false, false];
+let questionTimeout;
+let showQuestionTimeout;
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadQuestion();
+});
+
+document.body.style.backgroundImage = "url('imagens/img25.jpg')"; /*questions[0].background*/
+
+function startGame() {
+    playerName = document.getElementById("player-name").value;
+    if (playerName.trim() === "") {
+        alert("Por favor, insira seu nome.");
+        return;
+    }
+    document.getElementById("player-name-display").innerText = playerName;
+    document.getElementById("welcome-container").style.display = "none";
+    document.getElementById("quiz-container").style.display = "block";
+    selectRandomQuestions(); 
+    loadQuestion();
+}
+
+function selectRandomQuestions() {
+    selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 13);
+    currentQuestionIndex = 0;
+}
+
+function loadQuestion() {
+    if (currentQuestionIndex >= selectedQuestions.length) {
+        endGame();
+        return;
+    }
+    const questionContainer = document.getElementById("question");
+    const options = document.querySelectorAll(".option");
+
+    questionContainer.innerText = selectedQuestions[currentQuestionIndex].question;
+    document.body.style.backgroundImage = selectedQuestions[currentQuestionIndex].background;
+    questionContainer.classList.remove("fade"); // Remove the fade class to reset animation
+    void questionContainer.offsetWidth; // Trigger reflow to restart the animation
+    questionContainer.classList.add("fade"); // Add the fade class to start animation
+
+    options.forEach((option, index) => {
+        option.innerText = selectedQuestions[currentQuestionIndex].options[index];
+        option.style.display = "inline-block"; // Reset option visibility
+    });
+
+    document.getElementById("result").innerText = "";
+
+    clearTimeout(questionTimeout);
+    questionTimeout = setTimeout(() => {
+        currentQuestionIndex++;
+        loadQuestion();
+    }, 15000); // Move para a próxima pergunta após 15 segundos
+
+    updateHintButtons();
+}
+
+function checkAnswer(selectedOption) {
+    const resultContainer = document.getElementById("result");
+    if (selectedOption === selectedQuestions[currentQuestionIndex].correctAnswer) {
+        score++;
+        resultContainer.innerText = "Correto!";
+        resultContainer.style.color = "green";
+    } else {
+        resultContainer.innerText = "Errado!";
+        resultContainer.style.color = "red";
+    }
+    currentQuestionIndex++;
+    setTimeout(loadQuestion, 1000); //Move para a próxima pergunta após 1 segundo do resultado correto ou errado
+}
+
+function useHint(hintNumber) {
+    if (hintsUsed[hintNumber - 1]) return;
+
+    switch (hintNumber) {
+        case 1:
+            removeWrongOption();
+            break;
+        case 2:
+            showQuestionAgain();
+            break;
+        case 3:
+            showHint();
+            break;
+    }
+    hintsUsed[hintNumber - 1] = true;
+    updateHintButtons();
+}
+
+function removeWrongOption() {
+    const options = document.querySelectorAll(".option");
+    const correctAnswer = selectedQuestions[currentQuestionIndex].correctAnswer;
+    let removed = false;
+    options.forEach((option, index) => {
+        if (index !== correctAnswer && !removed) {
+            option.style.display = "none";
+            removed = true;
+        }
+    });
+}
+
+function showQuestionAgain() {
+    clearTimeout(questionTimeout);
+    const questionContainer = document.getElementById("question");
+    questionContainer.classList.remove("fade");
+    questionContainer.style.opacity = "1";
+    showQuestionTimeout = setTimeout(() => {
+        questionContainer.style.opacity = "";
+        questionContainer.classList.add("fade");
+        questionTimeout = setTimeout(() => {
+            currentQuestionIndex++;
+            loadQuestion();
+        }, 10000); // Move to the next question after 10 seconds
+    }, 5000); // Show the question again for 5 seconds
+}
+
+function showHint() {
+    alert(selectedQuestions[currentQuestionIndex].hint);
+}
+
+function updateHintButtons() {
+    for (let i = 1; i <= 3; i++) {
+        document.getElementById(`hint${i}`).disabled = hintsUsed[i - 1];
+    }
+}
+
+function endGame() {
+    const discount = Math.min(score, 13);
+    document.getElementById("score").innerText = score;
+    document.getElementById("discount").innerText = discount;
+    document.getElementById("quiz-container").style.display = "none";
+    document.getElementById("end-game-container").style.display = "block";
+}
+
+function resetGame() {
+    currentQuestionIndex = 0;
+    score = 0;
+    hintsUsed = [false, false, false];
+    document.getElementById("end-game-container").style.display = "none";
+    document.getElementById("welcome-container").style.display = "block";
+    document.getElementById("player-name").value = "";
+    clearTimeout(questionTimeout);
+    clearTimeout(showQuestionTimeout);
+}
