@@ -308,7 +308,7 @@ function startGame() {
 }
 
 function selectRandomQuestions() {
-    selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 40);
+    selectedQuestions = questions.sort(() => 0.5 - Math.random()).slice(0, 13);
     currentQuestionIndex = 0;
 }
 
